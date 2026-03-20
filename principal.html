@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Message from the Principal of Apex International School - Dr. John Smith shares his vision for excellence in education.">
+    <title>Principal's Desk - Apex International School</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <a href="#mainContent" class="skip-to-content">Skip to main content</a>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <a href="tel:+12345678900">📞 +1 234 567 8900</a>
+                    <a href="mailto:info@apexschool.edu">✉️ info@apexschool.edu</a>
+                    <span>📍 123 Education Lane, City, State - 123456</span>
+                </div>
+                <div class="top-bar-right">
+                    <div class="social-links"><a href="#">📘</a><a href="#">🐦</a><a href="#">📸</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brand Bar -->
+    <div class="brand-bar">
+        <div class="container">
+            <div class="brand-bar-content">
+                <a href="index.html" class="brand-logo">
+                    <div class="brand-logo-icon" id="brandLogo">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1e3a8a" />
+                                    <stop offset="100%" style="stop-color:#3b82f6" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M100 10 L180 50 L180 110 C180 155 145 185 100 195 C55 185 20 155 20 110 L20 50 Z"
+                                fill="url(#sg)" stroke="#c9a84c" stroke-width="4" /><text x="100" y="85"
+                                text-anchor="middle" fill="#fff" font-size="48" font-weight="bold"
+                                font-family="Georgia,serif">A</text>
+                            <path
+                                d="M60 110 L80 110 L80 100 C80 90 90 82 100 82 C110 82 120 90 120 100 L120 110 L140 110"
+                                stroke="#c9a84c" stroke-width="4" fill="none" />
+                            <circle cx="100" cy="72" r="5" fill="#c9a84c" />
+                            <path d="M70 130 Q100 145 130 130" stroke="#c9a84c" stroke-width="3" fill="none" /><text
+                                x="100" y="165" text-anchor="middle" fill="#c9a84c" font-size="14" font-weight="bold"
+                                font-family="Georgia,serif">EST. 1999</text>
+                        </svg>
+                    </div>
+                    <div class="brand-logo-text">
+                        <span class="school-name">Apex International School</span>
+                        <span class="school-tagline">Empowering Future Leaders Since 1999</span>
+                    </div>
+                </a>
+                <div class="brand-contact-info">
+                    <div class="brand-contact-item">
+                        <div class="bci-icon">📞</div>
+                        <div class="bci-text"><strong>Call Us</strong><span>+1 234 567 8900</span></div>
+                    </div>
+                    <div class="brand-contact-item">
+                        <div class="bci-icon">📍</div>
+                        <div class="bci-text"><strong>Visit Us</strong><span>123 Education Lane</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo" aria-hidden="true" tabindex="-1">
+                    <div class="logo-icon" id="headerLogo">A</div>
+                    <div class="logo-text">Apex <span>International</span></div>
+                </a>
+                <nav id="mainNav" aria-label="Main navigation">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="principal.html" class="active">Principal's Desk</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                        <li><a href="calendar.html">Calendar</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation"
+                    aria-expanded="false"><span></span><span></span><span></span></button>
+                <div class="nav-overlay" id="navOverlay"></div>
+            </div>
+        </div>
+    </header>
+
+    <main id="mainContent">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Principal's Desk</h1>
+                <p>A message from our Principal,Ashima Parihar</p>
+            </div>
+        </section>
+
+        <!-- Principal Section -->
+        <section class="principal-section">
+            <div class="container">
+                <div class="principal-content">
+                    <div class="principal-photo">
+                        <div class="photo-frame">👨‍🏫</div>
+                        <h3>Ashima Parihar</h3>
+                        <p>Principal, Apex International School</p>
+                        <p style="font-size:0.82rem; color: var(--text-light);">10+ Years
+                            Experience</p>
+                    </div>
+                    <div class="principal-message" id="dynamicPrincipalMessage">
+                        <h3>Dear Parents, Students & Well-Wishers,</h3>
+                        <p>It gives me immense pleasure to welcome you to Apex International School — a place where
+                            dreams take shape, talents are nurtured, and leaders are born. Since our inception in 1999,
+                            we have been committed to providing a holistic education that empowers young minds to become
+                            responsible global citizens.</p>
+                        <p>At Apex, we believe that education is not merely about imparting knowledge from textbooks. It
+                            is about inspiring curiosity, fostering critical thinking, and building character. Our
+                            dedicated faculty, state-of-the-art infrastructure, and a vibrant co-curricular ecosystem
+                            work together to ensure that every child receives personalized attention and the opportunity
+                            to excel.</p>
+                        <p>We are proud of our students who have consistently demonstrated academic brilliance,
+                            sportsmanship, and creative excellence at national and international platforms. Their
+                            achievements are a testament to the tireless efforts of our teachers and the unwavering
+                            support of our parent community.</p>
+                        <p>As we embark on a new academic year, I invite you to explore our website to learn more about
+                            our programs, facilities, and the Apex way of learning. Together, let us continue to build a
+                            future that our children deserve.</p>
+                        <p class="signature">Warm regards,<br>Dr. John Smith<br>Principal, Apex International School</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision & Mission -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Philosophy</h2>
+                    <p>The guiding principles behind the Apex approach to education</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Our Vision</h3>
+                        <p>To be a global center of excellence in education, producing confident, creative, and
+                            compassionate leaders who make a positive difference in the world.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Our Mission</h3>
+                        <p>To provide a safe, nurturing, and innovative learning environment where every student is
+                            empowered to achieve academic excellence and develop strong character.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💡</div>
+                        <h3>Our Values</h3>
+                        <p>Integrity, excellence, respect, innovation, and inclusivity form the foundation of everything
+                            we do at Apex International School.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-banner">
+            <div class="container">
+                <h2>Want to Meet the Principal?</h2>
+                <p>Schedule an appointment or visit us during office hours.</p>
+                <a href="contact.html" class="btn">Contact Us →</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Apex International School</h3>
+                    <p>Empowering future leaders through excellence in education since 1999.</p>
+                    <p>📍 123 Education Lane, City, State - 123456</p>
+                    <p>📞 +1 234 567 8900</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="principal.html">Principal's Desk</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                        <li><a href="calendar.html">Calendar</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Important Links</h3>
+                    <ul>
+                        <li><a href="facilities.html">Facilities</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="admission.html">Apply Now</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Apex International School. All Rights Reserved. | <a href="privacy.html">Privacy
+                        Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase compat SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
+    <script>
+        const _fbCfg = {
+            apiKey: "AIzaSyC-40yja6AZW4ZnYvr5xKZ3MHVt6NgNkdY",
+            authDomain: "apex-international-schoo-b6d46.firebaseapp.com",
+            projectId: "apex-international-schoo-b6d46",
+            storageBucket: "apex-international-schoo-b6d46.firebasestorage.app",
+            messagingSenderId: "396691111307",
+            appId: "1:396691111307:web:ed30f99005afb12f92c38e",
+            measurementId: "G-48Q6KG4Y7V"
+        };
+        if (!firebase.apps.length) firebase.initializeApp(_fbCfg);
+        const db = firebase.firestore();
+    </script>
+    <script src="js/website-sync.js"></script>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const navOverlay = document.getElementById('navOverlay');
+        function toggleMenu() { const a = menuToggle.classList.toggle('active'); mainNav.classList.toggle('active'); navOverlay.classList.toggle('active'); document.body.classList.toggle('menu-open'); menuToggle.setAttribute('aria-expanded', a); }
+        menuToggle.addEventListener('click', toggleMenu);
+        navOverlay.addEventListener('click', toggleMenu);
+        mainNav.querySelectorAll('a').forEach(l => { l.addEventListener('click', () => { if (mainNav.classList.contains('active')) toggleMenu(); }); });
+    </script>
+</body>
+
+</html>

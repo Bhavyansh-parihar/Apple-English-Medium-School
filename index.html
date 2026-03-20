@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Apex International School - Empowering future leaders through excellence in education, innovation, and character development since 1999.">
+    <title>Apex International School - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Skip to Content (Accessibility) -->
+    <a href="#mainContent" class="skip-to-content">Skip to main content</a>
+
+    <!-- Top Bar -->
+    <div class="top-bar" role="banner">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <a href="tel:+12345678900" aria-label="Call us">📞 +1 234 567 8900</a>
+                    <a href="mailto:info@apexschool.edu" aria-label="Email us">✉️ info@apexschool.edu</a>
+                    <span>📍 123 Education Lane, City, State - 123456</span>
+                </div>
+                <div class="top-bar-right">
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📸</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brand Bar with Large Logo -->
+    <div class="brand-bar">
+        <div class="container">
+            <div class="brand-bar-content">
+                <a href="index.html" class="brand-logo" aria-label="Apex International School Home">
+                    <div class="brand-logo-icon" id="brandLogo">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#1e3a8a" />
+                                    <stop offset="100%" style="stop-color:#3b82f6" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M100 10 L180 50 L180 110 C180 155 145 185 100 195 C55 185 20 155 20 110 L20 50 Z"
+                                fill="url(#shieldGrad)" stroke="#c9a84c" stroke-width="4" />
+                            <text x="100" y="85" text-anchor="middle" fill="#ffffff" font-size="48" font-weight="bold"
+                                font-family="Georgia,serif">A</text>
+                            <path
+                                d="M60 110 L80 110 L80 100 C80 90 90 82 100 82 C110 82 120 90 120 100 L120 110 L140 110"
+                                stroke="#c9a84c" stroke-width="4" fill="none" />
+                            <circle cx="100" cy="72" r="5" fill="#c9a84c" />
+                            <path d="M70 130 Q100 145 130 130" stroke="#c9a84c" stroke-width="3" fill="none" />
+                            <text x="100" y="165" text-anchor="middle" fill="#c9a84c" font-size="14" font-weight="bold"
+                                font-family="Georgia,serif">EST. 1999</text>
+                        </svg>
+                    </div>
+                    <div class="brand-logo-text">
+                        <span class="school-name">Apex International School</span>
+                        <span class="school-tagline">Empowering Future Leaders Since 1999</span>
+                    </div>
+                </a>
+                <div class="brand-contact-info">
+                    <div class="brand-contact-item">
+                        <div class="bci-icon">📞</div>
+                        <div class="bci-text">
+                            <strong>Call Us</strong>
+                            <span>+1 234 567 8900</span>
+                        </div>
+                    </div>
+                    <div class="brand-contact-item">
+                        <div class="bci-icon">📍</div>
+                        <div class="bci-text">
+                            <strong>Visit Us</strong>
+                            <span>123 Education Lane</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo" aria-hidden="true" tabindex="-1">
+                    <div class="logo-icon" id="headerLogo">A</div>
+                    <div class="logo-text">Apex <span>International</span></div>
+                </a>
+                <nav id="mainNav" aria-label="Main navigation">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="principal.html">Principal's Desk</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                        <li><a href="calendar.html">Calendar</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-overlay" id="navOverlay"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- News Ticker -->
+    <div class="news-ticker" aria-label="Latest school news">
+        <div class="container">
+            <div class="news-ticker-content">
+                <span class="news-ticker-label">📰 Latest</span>
+                <div class="news-ticker-marquee">
+                    <div class="news-ticker-track" id="dynamicNewsTicker">
+                        <span>🎉 Admissions open for Academic Year 2026-27 — Apply Now!</span>
+                        <span>🏆 Our students won 1st place at the National Science Olympiad!</span>
+                        <span>📅 Annual Day Celebration on March 15, 2026 — All parents welcome!</span>
+                        <span>📚 New STEM Lab inaugurated with cutting-edge equipment.</span>
+                        <span>🎉 Admissions open for Academic Year 2026-27 — Apply Now!</span>
+                        <span>🏆 Our students won 1st place at the National Science Olympiad!</span>
+                        <span>📅 Annual Day Celebration on March 15, 2026 — All parents welcome!</span>
+                        <span>📚 New STEM Lab inaugurated with cutting-edge equipment.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="mainContent">
+        <!-- Hero Section -->
+        <section class="hero" id="heroSection">
+            <div class="container">
+                <h1>Welcome to Apex International School</h1>
+                <p>Empowering future leaders through excellence in education, innovation, and character development.</p>
+                <div class="hero-buttons">
+                    <a href="admission.html" class="btn">Apply Now</a>
+                    <a href="about.html" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose Apex?</h2>
+                    <p>We provide a comprehensive educational experience that nurtures academic excellence and personal
+                        growth.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>Academic Excellence</h3>
+                        <p>Comprehensive curriculum designed to challenge and inspire students to achieve their full
+                            potential.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👨‍🏫</div>
+                        <h3>Expert Faculty</h3>
+                        <p>Highly qualified and experienced teachers dedicated to personalized attention and student
+                            success.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h3>Holistic Development</h3>
+                        <p>Focus on sports, arts, and extracurricular activities for complete personality development.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔬</div>
+                        <h3>STEM Programs</h3>
+                        <p>Cutting-edge Science, Technology, Engineering, and Mathematics programs with hands-on labs.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>Arts & Culture</h3>
+                        <p>Vibrant arts programs including music, dance, drama, and visual arts for creative expression.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Global Exposure</h3>
+                        <p>International collaborations and exchange programs to develop global perspectives.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Preview -->
+        <section>
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Building Tomorrow's Leaders Today</h3>
+                        <p>At Apex International School, we believe in providing an education that goes beyond
+                            textbooks. Our holistic approach ensures that every student develops the skills, knowledge,
+                            and character needed to succeed in an ever-changing world.</p>
+                        <p>With state-of-the-art facilities, experienced faculty, and a focus on innovation, we create
+                            an environment where students can thrive academically and personally.</p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <h4>1500+</h4>
+                                <p>Students</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>100+</h4>
+                                <p>Teachers</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>25+</h4>
+                                <p>Years of Excellence</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>50+</h4>
+                                <p>Activities</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image" id="aboutImage">🏫</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logistics & Quick Info -->
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Quick Information</h2>
+                    <p>Everything parents need — lunch menus, bus routes, uniforms, and bell timings</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🍽️</div>
+                        <h3>Lunch Menu</h3>
+                        <p>Nutritious, balanced meals served daily. Weekly menus include vegetarian &amp; non-vegetarian
+                            options with seasonal fruits.</p>
+                        <a href="facilities.html" class="btn"
+                            style="margin-top:15px; padding:10px 22px; font-size:0.9rem;">View Cafeteria →</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚌</div>
+                        <h3>Bus Routes</h3>
+                        <p>Safe &amp; reliable transport covering all major city areas. GPS-tracked buses with trained
+                            staff on board.</p>
+                        <a href="facilities.html" class="btn"
+                            style="margin-top:15px; padding:10px 22px; font-size:0.9rem;">View Transport →</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👔</div>
+                        <h3>Uniform Policy</h3>
+                        <p>Standard uniform for regular days, sports attire on PT days, and house colors for events.
+                            Available at the school store.</p>
+                        <a href="about.html" class="btn"
+                            style="margin-top:15px; padding:10px 22px; font-size:0.9rem;">Learn More →</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔔</div>
+                        <h3>Bell Schedule</h3>
+                        <p>School: 7:45 AM – 3:15 PM (Mon-Fri). Saturday: 7:45 AM – 12:30 PM. Pre-Primary: 8:00 AM –
+                            12:30 PM.</p>
+                        <a href="calendar.html" class="btn"
+                            style="margin-top:15px; padding:10px 22px; font-size:0.9rem;">Full Schedule →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What Parents & Alumni Say</h2>
+                    <p>Hear from our community about their Apex experience</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">Apex International has been a transformative experience for our
+                            daughter. The teachers genuinely care about each student's progress and the facilities are
+                            world-class.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RS</div>
+                            <div class="author-info">
+                                <strong>Ravi Sharma</strong>
+                                <span>Parent, Class 8</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">The STEM program at Apex prepared me exceptionally well for
+                            engineering. I'm grateful for the strong foundation and the mentorship I received from the
+                            faculty.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AP</div>
+                            <div class="author-info">
+                                <strong>Ananya Patel</strong>
+                                <span>Alumna, Batch of 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">Both of my children attend Apex and I've seen remarkable growth in
+                            their confidence and academic performance. The holistic education approach is truly
+                            outstanding.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MK</div>
+                            <div class="author-info">
+                                <strong>Meera Kapoor</strong>
+                                <span>Parent, Class 5 & 10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- School News -->
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>School News &amp; Updates</h2>
+                    <p>Latest happenings and announcements from Apex International School</p>
+                </div>
+                <div class="features-grid" id="dynamicNewsSection">
+                    <div class="feature-card" style="text-align:left;">
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                            <div class="feature-icon"
+                                style="width:44px;height:44px;font-size:1.1rem;margin:0;flex-shrink:0;">📰</div>
+                            <span style="font-size:0.78rem;color:var(--text-light);font-weight:600;">Feb 18, 2026</span>
+                        </div>
+                        <h3 style="font-size:1.1rem;">New STEM Lab Inaugurated</h3>
+                        <p>Our state-of-the-art STEM lab with robotics kits, 3D printers, and AI tools was inaugurated
+                            by the Chief Guest Dr. APJ Research Foundation.</p>
+                    </div>
+                    <div class="feature-card" style="text-align:left;">
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                            <div class="feature-icon"
+                                style="width:44px;height:44px;font-size:1.1rem;margin:0;flex-shrink:0;">🏆</div>
+                            <span style="font-size:0.78rem;color:var(--text-light);font-weight:600;">Feb 10, 2026</span>
+                        </div>
+                        <h3 style="font-size:1.1rem;">National Science Olympiad Winners!</h3>
+                        <p>Congratulations to our students who secured 1st place at the National Science Olympiad. A
+                            proud moment for the Apex community!</p>
+                    </div>
+                    <div class="feature-card" style="text-align:left;">
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                            <div class="feature-icon"
+                                style="width:44px;height:44px;font-size:1.1rem;margin:0;flex-shrink:0;">📢</div>
+                            <span style="font-size:0.78rem;color:var(--text-light);font-weight:600;">Feb 5, 2026</span>
+                        </div>
+                        <h3 style="font-size:1.1rem;">Admissions Open for 2026-27</h3>
+                        <p>We are now accepting applications for the academic year 2026-27. Limited seats available.
+                            Apply early to secure your child's spot!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="cta-banner">
+            <div class="container">
+                <h2>Ready to Join the Apex Family?</h2>
+                <p>Begin your child's journey to excellence today. Admissions are now open for 2026-27.</p>
+                <a href="admission.html" class="btn">Apply Now →</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Apex International School</h3>
+                    <p>Empowering future leaders through excellence in education since 1999.</p>
+                    <p>📍 123 Education Lane, City, State - 123456</p>
+                    <p>📞 +1 234 567 8900</p>
+                    <p>✉️ info@apexschool.edu</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="principal.html">Principal's Desk</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                        <li><a href="calendar.html">Calendar</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Important Links</h3>
+                    <ul>
+                        <li><a href="facilities.html">Facilities</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="admission.html">Apply Now</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Apex International School. All Rights Reserved. | <a href="privacy.html">Privacy
+                        Policy</a> | <a href="admin/login.html">Admin Portal</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase compat SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
+    <script>
+        const _fbCfg = {
+            apiKey: "AIzaSyC-40yja6AZW4ZnYvr5xKZ3MHVt6NgNkdY",
+            authDomain: "apex-international-schoo-b6d46.firebaseapp.com",
+            projectId: "apex-international-schoo-b6d46",
+            storageBucket: "apex-international-schoo-b6d46.firebasestorage.app",
+            messagingSenderId: "396691111307",
+            appId: "1:396691111307:web:ed30f99005afb12f92c38e",
+            measurementId: "G-48Q6KG4Y7V"
+        };
+        if (!firebase.apps.length) firebase.initializeApp(_fbCfg);
+        const db = firebase.firestore();
+    </script>
+    <script src="js/website-sync.js"></script>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const navOverlay = document.getElementById('navOverlay');
+
+        function toggleMenu() {
+            const isActive = menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+            menuToggle.setAttribute('aria-expanded', isActive);
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        navOverlay.addEventListener('click', toggleMenu);
+
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNav.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
