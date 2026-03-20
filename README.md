@@ -44,4 +44,4 @@ Update the following configuration files for your specific environment:
 This project is for internal school use and management.
 
 ---
-*Empowering future leaders since 1999.*
+*Empowering future leaders since 2026.*
