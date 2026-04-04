@@ -375,15 +375,38 @@
                         <div class="content-card">
                             <div class="card-header">
                                 <h2>Principal's Message</h2>
-                                <button class="btn btn-primary btn-sm"
-                                    onclick="AdminApp.saveContent('principalMessage')">Save Changes</button>
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm"
+                                        onclick="AdminApp.saveContent('principalMessage')">Save Changes</button>
+                                </div>
                             </div>
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label for="principalMsgTitle">Title</label>
-                                    <input type="text" id="principalMsgTitle" placeholder="Message from the Principal">
+                                <div class="grid-2">
+                                    <div class="form-group">
+                                        <label for="principalMsgTitle">Title</label>
+                                        <input type="text" id="principalMsgTitle" placeholder="Message from the Principal">
+                                    </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" style="margin-top: 15px;">
+                                    <label>Principal's Photo (4:3 Recommended)</label>
+                                    <div class="image-upload-wrapper">
+                                        <div class="image-preview principal-preview" id="principalPreview">
+                                            <span>No photo set</span>
+                                        </div>
+                                        <div class="image-upload-controls">
+                                            <button class="btn btn-sm btn-outline"
+                                                onclick="document.getElementById('principalInput').click()">Choose
+                                                Photo</button>
+                                            <button class="btn btn-sm btn-danger"
+                                                onclick="AdminApp.removeMedia('principal')">Remove</button>
+                                            <input type="file" id="principalInput" hidden accept="image/*"
+                                                onchange="AdminApp.handleMediaSelect(this, 'principal')">
+                                        </div>
+                                        <p class="help-text">JPG or PNG, Max 2MB. A 4:3 aspect ratio is recommended for
+                                            best display on the Principal's Desk page.</p>
+                                    </div>
+                                </div>
+                                <div class="form-group" style="margin-top: 15px;">
                                     <label for="principalMsgContent">Content</label>
                                     <textarea id="principalMsgContent" rows="12"
                                         placeholder="Write the principal's message here..."></textarea>
@@ -476,21 +499,95 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label>Hero Background Image</label>
-                                        <div class="image-upload-wrapper">
-                                            <div class="image-preview" id="heroPreview">
-                                                <span>No image set</span>
+                                        <label>Hero Slideshow (Up to 5 images)</label>
+                                        <div class="hero-slides-manager" id="heroSlidesManager">
+                                            <!-- Slide Slots -->
+                                            <div class="hero-slide-slot" data-index="0">
+                                                <div class="slot-header">
+                                                    <span>Slide 1</span>
+                                                    <label class="static-label">
+                                                        <input type="radio" name="staticHero" value="0" checked> Set as Static
+                                                    </label>
+                                                </div>
+                                                <div class="image-upload-wrapper">
+                                                    <div class="image-preview" id="heroPreview0"><span>No image</span></div>
+                                                    <div class="image-upload-controls">
+                                                        <input type="file" id="heroInput0" accept="image/*" hidden onchange="AdminApp.handleMediaSelect(this, 'hero', 0)">
+                                                        <button class="btn btn-secondary btn-xs" onclick="document.getElementById('heroInput0').click()">Choose</button>
+                                                        <button class="btn btn-danger btn-xs" onclick="AdminApp.removeMedia('hero', 0)">&#10006;</button>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="image-upload-controls">
-                                                <input type="file" id="heroInput" accept="image/*" hidden
-                                                    onchange="AdminApp.handleMediaSelect(this, 'hero')">
-                                                <button class="btn btn-secondary btn-sm"
-                                                    onclick="document.getElementById('heroInput').click()">Choose
-                                                    Image</button>
-                                                <button class="btn btn-danger btn-sm"
-                                                    onclick="AdminApp.removeMedia('hero')">Remove</button>
+
+                                            <div class="hero-slide-slot" data-index="1">
+                                                <div class="slot-header">
+                                                    <span>Slide 2</span>
+                                                    <label class="static-label">
+                                                        <input type="radio" name="staticHero" value="1"> Set as Static
+                                                    </label>
+                                                </div>
+                                                <div class="image-upload-wrapper">
+                                                    <div class="image-preview" id="heroPreview1"><span>No image</span></div>
+                                                    <div class="image-upload-controls">
+                                                        <input type="file" id="heroInput1" accept="image/*" hidden onchange="AdminApp.handleMediaSelect(this, 'hero', 1)">
+                                                        <button class="btn btn-secondary btn-xs" onclick="document.getElementById('heroInput1').click()">Choose</button>
+                                                        <button class="btn btn-danger btn-xs" onclick="AdminApp.removeMedia('hero', 1)">&#10006;</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="hero-slide-slot" data-index="2">
+                                                <div class="slot-header">
+                                                    <span>Slide 3</span>
+                                                    <label class="static-label">
+                                                        <input type="radio" name="staticHero" value="2"> Set as Static
+                                                    </label>
+                                                </div>
+                                                <div class="image-upload-wrapper">
+                                                    <div class="image-preview" id="heroPreview2"><span>No image</span></div>
+                                                    <div class="image-upload-controls">
+                                                        <input type="file" id="heroInput2" accept="image/*" hidden onchange="AdminApp.handleMediaSelect(this, 'hero', 2)">
+                                                        <button class="btn btn-secondary btn-xs" onclick="document.getElementById('heroInput2').click()">Choose</button>
+                                                        <button class="btn btn-danger btn-xs" onclick="AdminApp.removeMedia('hero', 2)">&#10006;</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="hero-slide-slot" data-index="3">
+                                                <div class="slot-header">
+                                                    <span>Slide 4</span>
+                                                    <label class="static-label">
+                                                        <input type="radio" name="staticHero" value="3"> Set as Static
+                                                    </label>
+                                                </div>
+                                                <div class="image-upload-wrapper">
+                                                    <div class="image-preview" id="heroPreview3"><span>No image</span></div>
+                                                    <div class="image-upload-controls">
+                                                        <input type="file" id="heroInput3" accept="image/*" hidden onchange="AdminApp.handleMediaSelect(this, 'hero', 3)">
+                                                        <button class="btn btn-secondary btn-xs" onclick="document.getElementById('heroInput3').click()">Choose</button>
+                                                        <button class="btn btn-danger btn-xs" onclick="AdminApp.removeMedia('hero', 3)">&#10006;</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="hero-slide-slot" data-index="4">
+                                                <div class="slot-header">
+                                                    <span>Slide 5</span>
+                                                    <label class="static-label">
+                                                        <input type="radio" name="staticHero" value="4"> Set as Static
+                                                    </label>
+                                                </div>
+                                                <div class="image-upload-wrapper">
+                                                    <div class="image-preview" id="heroPreview4"><span>No image</span></div>
+                                                    <div class="image-upload-controls">
+                                                        <input type="file" id="heroInput4" accept="image/*" hidden onchange="AdminApp.handleMediaSelect(this, 'hero', 4)">
+                                                        <button class="btn btn-secondary btn-xs" onclick="document.getElementById('heroInput4').click()">Choose</button>
+                                                        <button class="btn btn-danger btn-xs" onclick="AdminApp.removeMedia('hero', 4)">&#10006;</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+                                        <p class="help-text" style="margin-top: 10px;">Upload up to 5 images for the home page slideshow. Select "Set as Static" to define which image appears on all other page headers.</p>
                                     </div>
                                     <div class="form-group">
                                         <label>About Us Section Image</label>
@@ -1188,7 +1285,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="staffSubject">Subject / Department *</label>
+                    <label for="staffSubject">Subject / Department</label>
                     <input type="text" id="staffSubject" placeholder="e.g. Mathematics">
                 </div>
                 <div class="form-row">

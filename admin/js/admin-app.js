@@ -6,6 +6,11 @@ const AdminApp = {
     currentSection: 'dashboard',
     currentModal: null,
     editingItem: null,
+    _principalDataUrl: null,
+    _logoDataUrl: null,
+    _heroDataUrls: [null, null, null, null, null],
+    _aboutDataUrl: null,
+    _staffPhotoDataUrl: null,
 
     // ---- Initialize ----
     init() {
@@ -934,8 +939,8 @@ const AdminApp = {
             avatar: document.getElementById('staffName').value.trim().split(' ').map(n => n[0]).join('').toUpperCase()
         };
 
-        if (!data.name || !data.subject) {
-            this.showToast('Please fill in Name and Subject.', 'error');
+        if (!data.name) {
+            this.showToast('Please fill in Name.', 'error');
             return;
         }
 
@@ -1059,23 +1064,40 @@ const AdminApp = {
 
         // Website Media Previews
         this._updateMediaPreview('logo', content.websiteMedia?.logoUrl);
-        this._updateMediaPreview('hero', content.websiteMedia?.heroUrl);
         this._updateMediaPreview('about', content.websiteMedia?.aboutUrl);
+        this._updateMediaPreview('principal', content.principalMessage?.photoUrl);
+
+        // Hero Slideshow Previews
+        if (content.websiteMedia?.heroSlides) {
+            content.websiteMedia.heroSlides.forEach((slide, i) => {
+                if (slide && slide.url && i < 5) {
+                    const prev = document.getElementById(`heroPreview${i}`);
+                    if (prev) {
+                        prev.innerHTML = `<img src="${slide.url}" alt="hero ${i}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">`;
+                    }
+                }
+            });
+        }
+        if (content.websiteMedia?.staticHeroIndex !== undefined) {
+            const radio = document.querySelector(`input[name="staticHero"][value="${content.websiteMedia.staticHeroIndex}"]`);
+            if (radio) radio.checked = true;
+        }
     },
 
     _updateMediaPreview(type, url) {
-        const previewId = type === 'about' ? 'aboutPrev' : `${type}Preview`;
+        let previewId = `${type}Preview`;
+        if (type === 'about') previewId = 'aboutPrev';
         const previewEl = document.getElementById(previewId);
         if (!previewEl) return;
 
         if (url) {
-            previewEl.innerHTML = `<img src="${url}" alt="${type} preview">`;
+            previewEl.innerHTML = `<img src="${url}" alt="${type} preview" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">`;
         } else {
             previewEl.innerHTML = `<span>No image set</span>`;
         }
     },
 
-    handleMediaSelect(input, type) {
+    handleMediaSelect(input, type, index = null) {
         if (!input.files || !input.files[0]) return;
 
         const file = input.files[0];
@@ -1087,34 +1109,77 @@ const AdminApp = {
         const reader = new FileReader();
         reader.onload = (e) => {
             const dataUrl = e.target.result;
-            const previewId = type === 'about' ? 'aboutPrev' : `${type}Preview`;
-            document.getElementById(previewId).innerHTML = `<img src="${dataUrl}" alt="${type} preview">`;
+            let previewId = type === 'about' ? 'aboutPrev' : `${type}Preview`;
+            if (index !== null) previewId = `${type}Preview${index}`;
+
+            const previewEl = document.getElementById(previewId);
+            if (previewEl) {
+                previewEl.innerHTML = `<img src="${dataUrl}" alt="${type} preview" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">`;
+            }
 
             if (type === 'logo') this._logoDataUrl = dataUrl;
-            if (type === 'hero') this._heroDataUrl = dataUrl;
             if (type === 'about') this._aboutDataUrl = dataUrl;
+            if (type === 'principal') this._principalDataUrl = dataUrl;
+            if (type === 'staffPhoto') this._staffPhotoDataUrl = dataUrl;
+            if (type === 'hero') {
+                if (index !== null) this._heroDataUrls[index] = dataUrl;
+                else this._heroDataUrls[0] = dataUrl;
+            }
         };
         reader.readAsDataURL(file);
     },
 
-    removeMedia(type) {
-        const previewId = type === 'about' ? 'aboutPrev' : `${type}Preview`;
-        document.getElementById(previewId).innerHTML = `<span>No image set</span>`;
+    removeMedia(type, index = null) {
+        let previewId = type === 'about' ? 'aboutPrev' : `${type}Preview`;
+        if (index !== null) previewId = `${type}Preview${index}`;
+        
+        const previewEl = document.getElementById(previewId);
+        if (previewEl) previewEl.innerHTML = `<span>No image set</span>`;
+
         if (type === 'logo') this._logoDataUrl = 'REMOVE';
-        if (type === 'hero') this._heroDataUrl = 'REMOVE';
         if (type === 'about') this._aboutDataUrl = 'REMOVE';
+        if (type === 'principal') this._principalDataUrl = 'REMOVE';
+        if (type === 'staffPhoto') this._staffPhotoDataUrl = 'REMOVE';
+        if (type === 'hero') {
+            if (index !== null) this._heroDataUrls[index] = 'REMOVE';
+            else this._heroDataUrls[0] = 'REMOVE';
+        }
     },
 
-    saveContent(sectionKey) {
+    async saveContent(sectionKey) {
         const content = AdminDB.getObjectSync(AdminDB.KEYS.CONTENT);
 
         switch (sectionKey) {
             case 'principalMessage':
-                content.principalMessage = {
-                    title: document.getElementById('principalMsgTitle').value.trim(),
-                    content: document.getElementById('principalMsgContent').value.trim(),
-                    lastUpdated: new Date().toISOString()
-                };
+                if (!content.principalMessage) content.principalMessage = {};
+                
+                // Handle Photo Upload if selected
+                if (this._principalDataUrl) {
+                    this.showLoading('Uploading principal photo...');
+                    try {
+                        if (this._principalDataUrl === 'REMOVE') {
+                            content.principalMessage.photoUrl = '';
+                            content.principalMessage.cloudinaryId = '';
+                        } else {
+                            // Compress for 4:3 (800x600)
+                            const compressed = await this._compressImage(this._principalDataUrl, 800, 0.85);
+                            const result = await CloudinaryConfig.upload(compressed, 'apex_school/principal');
+                            content.principalMessage.photoUrl = result.secure_url;
+                            content.principalMessage.cloudinaryId = result.public_id;
+                        }
+                        this._principalDataUrl = null;
+                        this.hideLoading();
+                    } catch (e) {
+                        console.error('Principal photo upload failed:', e);
+                        this.showToast('Photo upload failed.', 'error');
+                        this.hideLoading();
+                        return;
+                    }
+                }
+
+                content.principalMessage.title = document.getElementById('principalMsgTitle').value.trim();
+                content.principalMessage.content = document.getElementById('principalMsgContent').value.trim();
+                content.principalMessage.lastUpdated = new Date().toISOString();
                 break;
             case 'schoolPolicies':
                 content.schoolPolicies = {
@@ -1155,14 +1220,26 @@ const AdminApp = {
                 this._logoDataUrl = null;
             }
 
-            // Handle Hero
-            if (this._heroDataUrl === 'REMOVE') {
-                content.websiteMedia.heroUrl = '';
-                this._heroDataUrl = null;
-            } else if (this._heroDataUrl) {
-                const res = await CloudinaryConfig.upload(this._heroDataUrl, 'apex_school/homepage');
-                content.websiteMedia.heroUrl = res.secure_url;
-                this._heroDataUrl = null;
+            // Handle Hero Slideshow
+            if (!content.websiteMedia.heroSlides) content.websiteMedia.heroSlides = [];
+            
+            for (let i = 0; i < 5; i++) {
+                if (this._heroDataUrls[i] === 'REMOVE') {
+                    content.websiteMedia.heroSlides[i] = null;
+                    this._heroDataUrls[i] = null;
+                } else if (this._heroDataUrls[i]) {
+                    const res = await CloudinaryConfig.upload(this._heroDataUrls[i], 'apex_school/homepage');
+                    content.websiteMedia.heroSlides[i] = { url: res.secure_url };
+                    this._heroDataUrls[i] = null;
+                }
+            }
+            // Filter out nulls and ensure it's still an array
+            content.websiteMedia.heroSlides = content.websiteMedia.heroSlides.filter(s => s !== null);
+            
+            // Handle Static Hero Index
+            const staticRadio = document.querySelector('input[name="staticHero"]:checked');
+            if (staticRadio) {
+                content.websiteMedia.staticHeroIndex = parseInt(staticRadio.value);
             }
 
             // Handle About Image
