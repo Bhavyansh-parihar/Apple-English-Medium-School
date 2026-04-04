@@ -1618,6 +1618,20 @@ const AdminApp = {
         setTimeout(() => toast.remove(), 5000);
     },
 
+    showLoading(message = 'Loading...') {
+        const overlay = document.getElementById('loadingOverlay');
+        const text = document.getElementById('loadingText');
+        if (overlay) overlay.classList.add('active');
+        if (text) text.textContent = message;
+        document.body.style.overflow = 'hidden';
+    },
+
+    hideLoading() {
+        const overlay = document.getElementById('loadingOverlay');
+        if (overlay) overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    },
+
     // ---- Logout ----
     logout() {
         if (confirm('Are you sure you want to log out?')) {
