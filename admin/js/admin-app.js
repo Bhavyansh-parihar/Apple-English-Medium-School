@@ -1068,6 +1068,11 @@ const AdminApp = {
         this._updateMediaPreview('principal', content.principalMessage?.photoUrl);
 
         // Hero Slideshow Previews
+        for (let i = 0; i < 5; i++) {
+            const prev = document.getElementById(`heroPreview${i}`);
+            if (prev) prev.innerHTML = `<span>No image set</span>`;
+        }
+
         if (content.websiteMedia?.heroSlides) {
             content.websiteMedia.heroSlides.forEach((slide, i) => {
                 if (slide && slide.url && i < 5) {
@@ -1221,20 +1226,23 @@ const AdminApp = {
             }
 
             // Handle Hero Slideshow
-            if (!content.websiteMedia.heroSlides) content.websiteMedia.heroSlides = [];
+            if (!content.websiteMedia.heroSlides) content.websiteMedia.heroSlides = [null, null, null, null, null];
             
+            // Ensure it has 5 slots
+            while (content.websiteMedia.heroSlides.length < 5) content.websiteMedia.heroSlides.push(null);
+
             for (let i = 0; i < 5; i++) {
                 if (this._heroDataUrls[i] === 'REMOVE') {
                     content.websiteMedia.heroSlides[i] = null;
                     this._heroDataUrls[i] = null;
                 } else if (this._heroDataUrls[i]) {
                     const res = await CloudinaryConfig.upload(this._heroDataUrls[i], 'apex_school/homepage');
-                    content.websiteMedia.heroSlides[i] = { url: res.secure_url };
+                    content.websiteMedia.heroSlides[i] = { url: res.secure_url, public_id: res.public_id };
                     this._heroDataUrls[i] = null;
                 }
             }
-            // Filter out nulls and ensure it's still an array
-            content.websiteMedia.heroSlides = content.websiteMedia.heroSlides.filter(s => s !== null);
+            // We no longer filter out nulls here to preserve index positions for the 5 slots.
+            // Shifting was causing confusion for the user and breaking the static hero selection.
             
             // Handle Static Hero Index
             const staticRadio = document.querySelector('input[name="staticHero"]:checked');
